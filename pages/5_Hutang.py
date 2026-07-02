@@ -92,4 +92,3 @@ if st.button("💾 Save Hutang"):
     + edited_df.values.tolist()
     )
 st.success("Data hutang berhasil disimpan!")
-st.rerun()

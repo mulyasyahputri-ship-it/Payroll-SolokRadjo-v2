@@ -93,4 +93,3 @@ if st.button(
     )
 st.success("Benefit berhasil disimpan!")
 
-st.rerun()
