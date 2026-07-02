@@ -2,10 +2,17 @@ import gspread
 import streamlit as st
 import pandas as pd
 
-gc = gspread.service_account(
+from google.oauth2.service_account import Credentials
 
-filename="msp-payroll-system-6caa7172d0c4.json"
+creds = Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"], 
+    scopes=[
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive",
+    ],
 )
+
+gc = gspread.authorize(creds)
 
 spreadsheet = gc.open("MSP_PAYROLL_DATABASE")
 
