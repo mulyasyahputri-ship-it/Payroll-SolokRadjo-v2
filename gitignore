@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment
+.env
+
+# PDF hasil generate
+Slip_Gaji_*.pdf
+*.pdf
+
+! msp-payroll-system-6caa7172d0c4.json
