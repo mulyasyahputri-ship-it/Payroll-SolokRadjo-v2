@@ -11,6 +11,8 @@ from database.google_sheet_solokradjo_one import (
     hutang_ws
 )
 
+from utils.utils import get_number_column_config
+
 df = get_sheet_df("HUTANG")
 
 
@@ -20,14 +22,6 @@ kolom_nominal = [
     "SISA PINJAMAN"
 ]
 
-from utils.utils import get_number_column_config
-
-edited_df = st.data_editor(
-    df,
-    column_config=get_number_column_config(kolom_nominal),
-    use_container_width=True,
-    num_rows="dynamic"
-)
 
 for kolom in kolom_nominal:
 
@@ -78,8 +72,10 @@ if selected_unit != "Semua":
 # DATA EDITOR
 # ==========================================
 
+
 edited_df = st.data_editor(
     df,
+column_config=get_number_column_config(kolom_nominal),
     use_container_width=True,
     num_rows="dynamic"
 )
@@ -88,10 +84,7 @@ edited_df = st.data_editor(
 # SAVE
 # ==========================================
 
-if st.button(
-    "💾 Save Hutang",
-    use_container_width=True
-):
+if st.button("💾 Save Hutang"):
 
     hutang_ws.update(
         "A1"
